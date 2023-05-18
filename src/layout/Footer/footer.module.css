@@ -25,6 +25,7 @@ footer h3 {
 .footer__links {
     display: flex;
     flex-direction: column;
+    list-style: none;
 }
 .footer__links a {
 margin-bottom: 5px;

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './footer.module.css'
 
 export const Footer = () => {
@@ -7,24 +8,24 @@ export const Footer = () => {
             <div className={styles.footer__group}>
                 <h3>Позвонить нам:</h3>
                 <div className={styles.footer__links}>
-                    <a href="#">+7 (495) 999-99-99</a>
+                    <li>+7 (495) 999-99-99</li>
                 </div>
             </div>
 
             <div className={styles.footer__group}>
                 
                 <div className={styles.footer__links}>
-                    <a href="#"> Акции</a>
-                    <a href="#"> Новости</a>
-                    <a href="#"> Отзывы</a>
+                    <li> Акции</li>
+                    <li> Новости</li>
+                    <li> Отзывы</li>
                 </div>
             </div>
 
             <div className={styles.footer__group}>
                 <div className={styles.footer__links}>
-                    <a href="#">Контакты</a>
-                    <a href="#">Вакансии</a>
-                    <a href="#">СМИ</a>
+                    <li ><Link to='http://google.com'>Контакты</Link> </li>
+                    <li >Вакансии</li>
+                    <li >СМИ</li>
                 </div>
             </div>
 
