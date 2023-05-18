@@ -3,10 +3,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-   
     background-color: rgb(254, 229, 77);  
     top: 0;
     z-index: 1;
+    
+    
+}
+
+.headerMenu {
+    display: flex;
+    list-style: none;
     
     
 }
@@ -31,8 +37,15 @@
 .header_a{
     font-size: 15px;
     font-weight: 600;
-    margin-right: 25px;
+    margin-right: 5px;
     text-decoration: none;
     color: #213053;
+}
+.header_b{
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 5px;
+    text-decoration: none;
+    color:green;
 }
 

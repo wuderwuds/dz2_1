@@ -1,12 +1,15 @@
 import './App.css'
+import { Footer } from './Footer/Footer'
 import { Header } from "./Header"
-import { Main } from "./Main"
+
+import { Outlet } from 'react-router-dom'
 
 export const Layout = () => {
     return (
         <div className="App">
         <Header/>
-        <Main/>
+        <Outlet/>
+        <Footer/>
     </div>
     )
 }
