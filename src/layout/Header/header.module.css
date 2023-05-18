@@ -9,11 +9,14 @@
     
     
 }
+.header_logo {
+    cursor: pointer;
+}
 
 .headerMenu {
     display: flex;
     list-style: none;
-    
+    align-items: center;
     
 }
 

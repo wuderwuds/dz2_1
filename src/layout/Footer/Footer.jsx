@@ -7,7 +7,7 @@ export const Footer = () => {
             <div className={styles.footer__group}>
                 <h3>Позвонить нам:</h3>
                 <div className={styles.footer__links}>
-                    <a href="tel:74959999999">+7 (495) 999-99-99</a>
+                    <a href="#">+7 (495) 999-99-99</a>
                 </div>
             </div>
 
@@ -21,7 +21,6 @@ export const Footer = () => {
             </div>
 
             <div className={styles.footer__group}>
-                <h3>Компания:</h3>
                 <div className={styles.footer__links}>
                     <a href="#">Контакты</a>
                     <a href="#">Вакансии</a>
@@ -30,7 +29,7 @@ export const Footer = () => {
             </div>
 
         </div>
-        <div className={styles.footer__copyright}> GreenCorp © 2021
+        <div className={styles.footer__copyright}> DogFood © 2023
 
         </div>
 
