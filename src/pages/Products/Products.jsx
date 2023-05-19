@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { CardList } from "../../Components/CardList";
 import { useCallback, useEffect, useState } from "react";
 
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEwN2UwOGFhMzk3MTIxODM4ZjI4ZDQiLCJncm91cCI6Imdyb3VwLTExIiwiaWF0IjoxNjc4ODAyNDQ2LCJleHAiOjE3MTAzMzg0NDZ9.tgsqXLmGhz2zHkOPOHKVNREX370s6esLbAS-wyzOwTQ'
+const TOKEN = localStorage.getItem('au_token')
 export const Products = () => {
+   const navigate = useNavigate()
     const [pets, setPets] = useState([])
+    useEffect(() => {
+      const token = localStorage.getItem('au_token')
+      if (!token) navigate('/signin')
+    }, [navigate])
+
     const fetchData = useCallback(async () => {
         const res = await fetch('https://api.react-learning.ru/products', {
           headers: {

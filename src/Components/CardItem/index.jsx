@@ -15,9 +15,9 @@ export const CardItem = ({pet}) => {
    
    <div className={styles.button}>
    <button 
-   className="btn btn-primary mx-3"
-   onClick={() => navigate(`/products/${pet._id}`)}>Open</button>
-     <button className="btn btn-danger">Delete</button>
+   className="btn btn-warning "
+   onClick={() => navigate(`/products/${pet._id}`)}>Подробнее</button>
+     {/* <button className="btn btn-danger">Delete</button> */}
   </div>
   </div>
 </div>

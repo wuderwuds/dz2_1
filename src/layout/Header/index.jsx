@@ -21,8 +21,20 @@ return (
             
             <li> <NavLink
              className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
-             to='/'>
-              Контакты
+             to='/useinfo'>
+              О пользователе
+            </NavLink>
+            </li>
+            <li> <NavLink
+             className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
+             to='/signin'>
+              SignIn
+            </NavLink>
+            </li>
+            <li> <NavLink
+            onClick={()=>localStorage.clear()}
+             className={styles.header_a}>
+              Выход
             </NavLink>
             </li>
            

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { CardPet } from "../../Components/CardPet/CardPet"
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEwN2UwOGFhMzk3MTIxODM4ZjI4ZDQiLCJncm91cCI6Imdyb3VwLTExIiwiaWF0IjoxNjc4ODAyNDQ2LCJleHAiOjE3MTAzMzg0NDZ9.tgsqXLmGhz2zHkOPOHKVNREX370s6esLbAS-wyzOwTQ'
+const TOKEN = localStorage.getItem('au_token')
 export const PageProduct = () => {
     
     const {idOfProd} = useParams()
