@@ -6,7 +6,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Layout } from './layout';
-import { Products } from './pages/Products';
+import { Products } from './pages/Products/Products';
+import { PageProduct } from './pages/PageProduct/PageProduct';
+
+
 
 
 const router = createBrowserRouter([
@@ -20,6 +23,12 @@ const router = createBrowserRouter([
       path: "products",
       element: <Products/>,
     },
+
+    {
+      path: "products/:idOfProd",
+      element: <PageProduct/>
+    },
+
      ]
    
   },

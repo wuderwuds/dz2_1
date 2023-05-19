@@ -1,7 +1,9 @@
 
+import { useNavigate } from 'react-router-dom'
 import styles from './carditem.module.css'
 export const CardItem = ({pet}) => {
-    return (
+    const navigate = useNavigate()
+  return (
         
 <div className={`card  ${styles.wrapper}`}>
   <img src={pet.pictures} className={styles.pet_pictures}  alt={pet.title}/>
@@ -12,7 +14,9 @@ export const CardItem = ({pet}) => {
     
    
    <div className={styles.button}>
-   <button className="btn btn-primary mx-3">Open</button>
+   <button 
+   className="btn btn-primary mx-3"
+   onClick={() => navigate(`/products/${pet._id}`)}>Open</button>
      <button className="btn btn-danger">Delete</button>
   </div>
   </div>
