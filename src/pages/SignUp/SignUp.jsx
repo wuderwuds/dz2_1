@@ -27,7 +27,7 @@ export const SignUn = () => {
    
     if (res.ok) {
       return navigate('/signin')
-    }
+    } alert(responce.message)
   
   }
 

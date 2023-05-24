@@ -15,7 +15,7 @@ export const CardPet = ({prod}) =>{
     
 
     return(
-        <div className={styles.st}>
+        <div  className={styles.st}>
         <div className={`card ${styles.wrapper}`}>
         <div className="modal-header">
             <p className="modal-title p-2">Информация о товаре</p>

@@ -2,7 +2,7 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom'
 import {  useEffect } from 'react';
-import { signInFetch } from '../../api/user';
+import { signInFetch } from '../../api/signin';
 import styles from './signin.module.css'
 const signInSchema = Yup.object().shape({
   email: Yup.string().email('Некорректный email').required('Required'),
@@ -24,15 +24,18 @@ export const SignIn = () => {
 
   const onSubmit = async (values) => {
     const res = await signInFetch(values)
+    const responce = await res.json()
     if (res.ok) {
-      const responce = await res.json()
+      
       console.log(responce);
       const useId = responce.data
       localStorage.setItem('au_token', responce.token)
       localStorage.setItem('us_id', useId._id)
       localStorage.setItem('us_group', useId.group)
       return navigate('/products')
-    }
+    } 
+    alert(responce.message)
+    
 
 
    

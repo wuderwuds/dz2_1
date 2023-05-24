@@ -2,8 +2,12 @@ import styles from './header.module.css'
 import header_logo from '../../header_logo.jpg'
 import { NavLink, useNavigate } from 'react-router-dom'
 
+
+
+
 export const Header = () => {
 const navigate = useNavigate()
+
 return (
     
 <header className={styles.header}> 
@@ -19,24 +23,26 @@ return (
               </NavLink> 
             </li>
             
-            <li> <NavLink
+            <li className={localStorage.getItem('au_token') ? '' : styles.lioff}> <NavLink
              className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
              to='/useinfo'>
-              О пользователе
+              <i className="fa-solid fa-user"></i>
             </NavLink>
             </li>
-            <li> <NavLink
+            <li className={localStorage.getItem('au_token') ? styles.lioff : ''}> <NavLink
              className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
              to='/signin'>
-              SignIn
+              Sign in
             </NavLink>
             </li>
-            <li> <NavLink
+            {/* <li> <NavLink
             onClick={()=>localStorage.clear()}
-             className={styles.header_a}>
+             className={styles.header_a}
+             to='/'>
+              
               Выход
             </NavLink>
-            </li>
+            </li> */}
            
            {/* <button className={styles.header_button} > Заказать
 

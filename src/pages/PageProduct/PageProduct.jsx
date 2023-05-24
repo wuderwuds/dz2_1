@@ -7,6 +7,8 @@ export const PageProduct = () => {
     const {idOfProd} = useParams()
     const [prod, setProd] = useState([])
     const fetchData = useCallback(async () => {
+try {
+
         const res = await fetch(`https://api.react-learning.ru/products/${idOfProd}`, {
           headers: {
             Authorization: 'Bearer ' + TOKEN
@@ -14,9 +16,17 @@ export const PageProduct = () => {
         }); 
         const responce = await res.json();
         console.log(responce);
-        setProd(responce)
+        if (res.status===200) {
+          return setProd(responce)
+        }
+        alert(responce.message)
+      } catch (error) {
+        alert(error)
+      }
+       
       }, [idOfProd])
-    useEffect(() => {
+   
+      useEffect(() => {
          fetchData()
     }, [fetchData])
     

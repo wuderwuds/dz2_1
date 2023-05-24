@@ -12,19 +12,26 @@ export const Products = () => {
     }, [navigate])
 
     const fetchData = useCallback(async () => {
-        const res = await fetch('https://api.react-learning.ru/products', {
+    try {  
+      const res = await fetch('https://api.react-learning.ru/products', {
           headers: {
             Authorization: 'Bearer ' + TOKEN
           }
         }); 
         const responce = await res.json();
-        
-        setPets(responce.products)
-      }, [])
+        if (res.status === 200) {
+         return setPets(responce.products)
+        }
+        alert(responce.message)
+      } catch (error) {
+        alert(error)
+      }
+   }, [])
     useEffect(() => {
          fetchData()
     }, [fetchData])
     console.log(pets);
+    
     return (
       
       <CardList pets={pets}/>

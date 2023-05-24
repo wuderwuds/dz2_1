@@ -1,8 +1,10 @@
 .st {
     display: flex;
     justify-content: center;
+    
 }
 .wrapper {
  width: 18rem;
  
 }
+
