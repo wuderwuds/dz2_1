@@ -39,24 +39,21 @@ export const SignUn = () => {
         onSubmit={onSubmit}
         validationSchema={signInSchema}
       >
-        <Form className={styles.wrapper}>
-          <label htmlFor="email">Email</label>
-          <Field
-            id="email"
-            name="email"
-            placeholder="jane@acme.com"
-            type="email"
-          />
+      <Form className={styles.wrapper}>
+      <label htmlFor="email">Email</label>
+      <Field
+        id="email"
+        name="email"
+        placeholder="jane@acme.com"
+         type="email"
+       />
 
-          <label htmlFor="password">Password</label>
-          <Field id="password" name="password" placeholder="password" type='password' />
-          
-          <label htmlFor="passgroupword">Группа </label>
-          <Field id="group" name="group" placeholder="group-11" type='text'/>
-
-          <button className="btn btn-success mt-1" type="submit">Зарегистрироваться</button>
-          
-        </Form>
+      <label htmlFor="password">Password</label>
+      <Field id="password" name="password" placeholder="password" type='password' />
+      <label htmlFor="passgroupword">Группа </label>
+      <Field id="group" name="group" placeholder="group-11" type='text'/>
+      <button className="btn btn-success mt-1" type="submit">Зарегистрироваться</button>
+      </Form>
       </Formik>
     </div>
   )

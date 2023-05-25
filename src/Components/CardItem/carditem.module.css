@@ -32,7 +32,7 @@ cursor: pointer;
 }
 
 .pet_name {
-    height: 43px;
+    height: auto;
     
 }
 .pet_name1 {

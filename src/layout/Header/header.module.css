@@ -6,7 +6,7 @@
     background-color: rgb(254, 229, 77);  
     top: 0;
     z-index: 1;
-    position: sticky;
+    position: relative;
     
     
 }

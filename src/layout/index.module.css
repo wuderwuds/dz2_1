@@ -3,3 +3,7 @@
     flex-direction: column;
     height: 100%;
 }
+.wrapper1 {
+    overflow-y: auto;
+    margin-bottom: 107px;
+}

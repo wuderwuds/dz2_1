@@ -10,17 +10,18 @@ const signInSchema = Yup.object().shape({
 });
 
 export const SignIn = () => {
-  const navigate = useNavigate()
 
-  useEffect(() => {
-    const token = localStorage.getItem('au_token')
-    if (token) navigate('/products')
-  }, [navigate])
+const navigate = useNavigate()
 
-  const initialValues = {
-    email: '',
-    password: '',
-  }
+useEffect(() => {
+  const token = localStorage.getItem('au_token')
+  if (token) navigate('/products')
+}, [navigate])
+
+const initialValues = {
+  email: '',
+  password: '',
+}
 
   const onSubmit = async (values) => {
     const res = await signInFetch(values)
@@ -35,10 +36,6 @@ export const SignIn = () => {
       return navigate('/products')
     } 
     alert(responce.message)
-    
-
-
-   
   }
 
   return (
@@ -49,22 +46,16 @@ export const SignIn = () => {
         onSubmit={onSubmit}
         validationSchema={signInSchema}
       >
-        <Form className={styles.wrapper} >
-          <label htmlFor="email">Email</label>
-          <Field
-            id="email"
-            name="email"
-            placeholder="jane@acme.com"
-            type="email"
-          />
-
-          <label htmlFor="password">Password</label>
-          <Field id="password" name="password" placeholder="password" type='password' />
-
-          <button className="btn btn-success mt-1" type="submit">Войти</button>
-          <p><Link to={'/signup'}>Регистрация</Link></p>
-        </Form>
-      </Formik>
-    </div>
+      <Form className={styles.wrapper} >
+      <label htmlFor="email">Email</label>
+      <Field id="email" name="email" placeholder="jane@acme.com" type="email"/>
+       
+       <label htmlFor="password">Password</label>
+       <Field id="password" name="password" placeholder="password" type='password' />
+       <button className="btn btn-success mt-1" type="submit">Войти</button>
+       <p><Link to={'/signup'}>Регистрация</Link></p>
+       </Form>
+       </Formik>
+       </div>
   )
 }

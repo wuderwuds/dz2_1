@@ -8,33 +8,30 @@ export const PageProduct = () => {
     const [prod, setProd] = useState([])
     const fetchData = useCallback(async () => {
 try {
-
-        const res = await fetch(`https://api.react-learning.ru/products/${idOfProd}`, {
-          headers: {
-            Authorization: 'Bearer ' + TOKEN
-          }
-        }); 
-        const responce = await res.json();
-        console.log(responce);
-        if (res.status===200) {
-          return setProd(responce)
-        }
-        alert(responce.message)
-      } catch (error) {
-        alert(error)
-      }
+  const res = await fetch(`https://api.react-learning.ru/products/${idOfProd}`, {
+  headers: {
+  Authorization: 'Bearer ' + TOKEN
+  }
+  }); 
+  const responce = await res.json();
+  console.log(responce);
+  if (res.status===200) {
+  return setProd(responce)
+  }
+  alert(responce.message)
+  } catch (error) {
+  alert(error)
+  }
        
-      }, [idOfProd])
+  }, [idOfProd])
    
-      useEffect(() => {
-         fetchData()
-    }, [fetchData])
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
     
 
   
-    return (
-       
-        <CardPet prod={prod}/>
-        
-    )
+  return (
+    <CardPet prod={prod}/>
+   )
 }
