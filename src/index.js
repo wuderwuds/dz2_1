@@ -11,12 +11,15 @@ import { PageProduct } from './pages/PageProduct/PageProduct';
 import { Home } from './pages/Home/Home';
 import { SignIn } from './pages/SignIn/SignIn';
 import { SignUn } from './pages/SignUp/SignUp';
-import { UseInfo } from './pages/UseInfo/UseInfo';
+import {
+  QueryClient,
+  QueryClientProvider
+  
+} from '@tanstack/react-query'
+import { CardUserInfo } from './pages/CardUserInfo/CardUserInfo';
 
 
-
-
-
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'useinfo',
-        element: <UseInfo/>
+        element: <CardUserInfo/>
        },
        {
         path: 'signin',
@@ -59,7 +62,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
