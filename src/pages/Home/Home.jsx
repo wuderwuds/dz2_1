@@ -2,6 +2,6 @@ import styles from './home.module.css'
 
 export const Home =() => {
     return (
-        <div className={styles.wrapper}><p1>Добро пожаловать!</p1></div>
+        <div className={styles.wrapper}><h1>Добро пожаловать!</h1></div>
     )
 }

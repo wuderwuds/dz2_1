@@ -1,13 +1,14 @@
 import styles from './header.module.css'
 import header_logo from '../../header_logo.jpg'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 
 
 export const Header = () => {
 const navigate = useNavigate()
-
+const {token} = useSelector(state=>state.user)
 return (
     
 <header className={styles.header}> 
@@ -21,13 +22,13 @@ return (
   to='products'> Витрина 
   </NavLink> 
   </li>
-  <li className={localStorage.getItem('au_token') ? '' : styles.lioff}> <NavLink
+  <li className={ token ? '' : styles.lioff}> <NavLink
    className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
-  to='/useinfo'>
+  to='/userinfo'>
   <i className="fa-solid fa-user"></i>
   </NavLink>
   </li>
-  <li className={localStorage.getItem('au_token') ? styles.lioff : ''}> <NavLink
+  <li className={token ? styles.lioff : ''}> <NavLink
   className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
   to='/signin'>
   Sign in

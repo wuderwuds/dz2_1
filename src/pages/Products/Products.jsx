@@ -1,19 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { CardList } from "../../Components/CardList";
-import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-
-
-const TOKEN = localStorage.getItem('au_token')
+import { useAuth } from "../../hooks/useAuth";
 
 export const Products = () => {
    
-const navigate = useNavigate()
-
-useEffect(() => {
-const token = localStorage.getItem('au_token')
-if (!token) navigate('/signin')
-}, [navigate])
+const {token} = useAuth()
    
 const {data: pets, isError, error, isLoading} = useQuery({
 queryKey: ['getProducts'],
@@ -23,7 +14,7 @@ queryFn: async () => {
 
 const res = await fetch('https://api.react-learning.ru/products', {
 headers: {
-Authorization: 'Bearer ' + TOKEN
+Authorization: 'Bearer ' + token
 }
 }); 
 const responce = await res.json();

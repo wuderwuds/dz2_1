@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom"
 import { CardPet } from "../../Components/CardPet/CardPet"
 import { useQuery } from "@tanstack/react-query"
+import { useAuth } from "../../hooks/useAuth"
 
-const TOKEN = localStorage.getItem('au_token')
+
 
 export const PageProduct = () => {
+
+const {token} = useAuth()
 
 const {idOfProd} = useParams()
 
@@ -16,17 +19,16 @@ try {
 
 const res = await fetch(`https://api.react-learning.ru/products/${idOfProd}`, {
   headers: {
-  Authorization: 'Bearer ' + TOKEN
+  Authorization: 'Bearer ' + token
   }
   }); 
   const responce = await res.json();
-  console.log(prod);
-  if (res.status===200) {
+    if (res.status===200) {
   return responce
   }
-  alert(responce.message)
+  return alert(responce.message)
   } catch (error) {
-  alert(error)
+  return alert(error)
   }
   }})
    

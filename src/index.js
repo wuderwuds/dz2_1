@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
-        path: 'useinfo',
+        path: 'userinfo',
         element: <CardUserInfo/>
        },
        {

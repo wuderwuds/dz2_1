@@ -4,12 +4,13 @@ import { myInitialData } from "../initialData";
 const userSlice = createSlice({
     name: "user",
     initialState: myInitialData.user,
-    reducer:{
+    reducers:{
         setUpUser(_, action) {
             return action.payload
         },
         cleanUser() {
-            return myInitialData.user
+            localStorage.removeItem('reduxState');
+            return myInitialData.user;
         }
     }
 })

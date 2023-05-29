@@ -1,10 +1,12 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import styles from './carduser.module.css'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { cleanUser } from '../../redux/slices/userSlice'
 export const CardUser = ({cardUser}) =>{
-
-    const navigate = useNavigate()
-
+   const dispatch = useDispatch()
+   const navigate = useNavigate()
+    
     useEffect(() => {
         const listner = (event) => {
             if(event.key==='Escape') navigate(-1)
@@ -37,7 +39,7 @@ export const CardUser = ({cardUser}) =>{
     <NavLink 
     to='/'> 
     <button 
-    onClick={()=>localStorage.clear()}
+    onClick={()=>dispatch(cleanUser())}
     type="button"  className="m-2 btn btn-warning">
      Выйти
     </button> 
