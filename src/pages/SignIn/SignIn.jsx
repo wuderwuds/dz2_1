@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import {  useEffect } from 'react';
 import styles from './signin.module.css'
 import { useMutation } from '@tanstack/react-query';
+import { useDispatch } from 'react-redux';
+import { setUpUser } from '../../redux/slices/userSlice';
 
 const signInSchema = Yup.object().shape({
 email: Yup.string().email('Некорректный email').required('Required'),
@@ -11,6 +13,8 @@ password: Yup.string().required('Required'),
 });
 
 export const SignIn = () => {
+
+const dispatch = useDispatch()
 
 const navigate = useNavigate()
 
@@ -23,6 +27,7 @@ const initialValues = {
   email: '',
   password: '',
 }
+
 const {mutateAsync} = useMutation({
 mutationFn: async (values) => {
 const res = await fetch('https://api.react-learning.ru/signin', {
@@ -39,13 +44,11 @@ const onSubmit = async (values) => {
 
 const res = await mutateAsync(values)
 const responce = await res.json()
+
 if (res.ok) {
-console.log(responce);
-const useId = responce.data
-localStorage.setItem('au_token', responce.token)
-localStorage.setItem('us_id', useId._id)
-localStorage.setItem('us_group', useId.group)
-return navigate('/products')
+dispatch(setUpUser({token: responce.token, ...responce.data}))
+
+return responce
 } 
 alert(responce.message)
 }

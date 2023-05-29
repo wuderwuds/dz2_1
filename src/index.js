@@ -17,6 +17,8 @@ import {
   
 } from '@tanstack/react-query'
 import { CardUserInfo } from './pages/CardUserInfo/CardUserInfo';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 
 const queryClient = new QueryClient()
@@ -62,9 +64,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
   <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
     </QueryClientProvider>
+    </Provider>
   </React.StrictMode>
 );
 
