@@ -2,6 +2,7 @@ import styles from './header.module.css'
 import header_logo from '../../header_logo.jpg'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Search } from '../../Components/Search/Search'
 
 
 
@@ -13,7 +14,9 @@ return (
     
 <header className={styles.header}> 
 <img onClick={()=>navigate('/')} className={styles.header_logo} src={header_logo} alt='logo'/>
+<Search/>
 <div className={styles.headerMenu}>
+
   <i className="fa-regular fa-heart fa-lg m-1" ></i>
   <i className="fa-solid fa-bag-shopping fa-lg m-3"></i>
   <li className={styles.header_a}> 
