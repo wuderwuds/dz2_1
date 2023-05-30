@@ -16,7 +16,8 @@ export const CardUser = ({cardUser}) =>{
     }, [navigate])
     
 
-    return(
+        return(
+    
     <div className={styles.st}>
     <div className={`card ${styles.wrapper}`}>
     <div className="modal-header">

@@ -14,12 +14,10 @@ import { SignUn } from './pages/SignUp/SignUp';
 import {
   QueryClient,
   QueryClientProvider
-  
 } from '@tanstack/react-query'
 import { CardUserInfo } from './pages/CardUserInfo/CardUserInfo';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -31,7 +29,7 @@ const router = createBrowserRouter([
 
       {
         index: 'true',
-        element: <Home/>
+        element: <Home/>,
       },
       {
         path: 'userinfo',
@@ -55,19 +53,18 @@ const router = createBrowserRouter([
       path: "products/:idOfProd",
       element: <PageProduct/>
     },
-
-     ]
-   
-  },
+    
+     ],
+   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>
 );

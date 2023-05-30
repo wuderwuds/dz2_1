@@ -28,13 +28,13 @@ const initialValues = {
 const {mutateAsync} = useMutation({
 mutationFn: async (values) => {
 const res = await fetch('https://api.react-learning.ru/signin', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json'
-},
-body: JSON.stringify(values)
+  method: 'POST',
+  headers: {
+  'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(values)
 }) 
-return res
+  return res
 }})
 
 const onSubmit = async (values) => {
@@ -42,13 +42,13 @@ const onSubmit = async (values) => {
 const res = await mutateAsync(values)
 const responce = await res.json()
 console.log(responce);
-if (res.ok) {
+  if (res.ok) {
 dispatch(setUpUser({token: responce.token, ...responce.data}))
 
-return navigate('/products')
-} 
-return alert(responce.message)
-}
+  return navigate('/products')
+  } 
+  return alert(responce.message)
+  }
 
 return (
   

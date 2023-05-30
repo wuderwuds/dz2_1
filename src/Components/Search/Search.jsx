@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { useDebounce } from "../../hooks/useDebounce"
 import { useDispatch } from "react-redux"
 import { changeSearchValue } from "../../redux/slices/filterSlice"
 import styles from './search.module.css'
 
 export const Search = () => {
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [searchValue, setSearchValue] = useState(() => {
     const firstSearch = searchParams.get('search')
@@ -30,7 +31,12 @@ export const Search = () => {
     searchParams.forEach((value, key) => params[key] = value)
 
     setSearchParams({ ...params, search: event.target.value })
+
+    navigate('/products')
+
   }
 
-  return <div> <input className={styles.search} value={searchValue} onChange={(event)=>handleChange(event)} placeholder="Поиск" /> </div>
+  return  <input className={styles.search} value={searchValue} onChange={(event)=>handleChange(event)} placeholder="Поиск" /> 
+  
+   
 }

@@ -1,5 +1,22 @@
 .search {
-    background-color: rgb(254, 229, 77);
-    border-radius: 10px;
+    padding-left:25px;
+    background-color: transparent;
+    background-image: url('../../pictures/magnifying.svg');
+    font-weight: 400;
+    background-position-x: 4px;
+    background-position-y: center;
+    background-size: 1rem;
+    background-repeat: no-repeat;
     outline: none;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 1rem;
+    border: solid;
+            
 }
+
+.search::placeholder {
+    color: black;
+    opacity: 0.4;
+  }
+

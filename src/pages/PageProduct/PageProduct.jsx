@@ -3,8 +3,6 @@ import { CardPet } from "../../Components/CardPet/CardPet"
 import { useQuery } from "@tanstack/react-query"
 import { useAuth } from "../../hooks/useAuth"
 
-
-
 export const PageProduct = () => {
 
 const {token} = useAuth()
