@@ -14,15 +14,15 @@ return (
     
 <header className={styles.header}> 
 <img onClick={()=>navigate('/')} className={styles.header_logo} src={header_logo} alt='logo'/>
+<div className={ token ? '' : styles.lioff}  ><Search /></div>
 
-<Search className={ token ? '' : styles.lioff}  />
 
 
 <div className={styles.headerMenu}>
 
   <i className="fa-regular fa-heart fa-lg m-1" ></i>
   <i className="fa-solid fa-bag-shopping fa-lg m-3"></i>
-  <li className={styles.header_a}> 
+  <li className={ token ? '' : styles.lioff}> 
   <NavLink 
   className={({ isActive }) => isActive ? styles.header_b : styles.header_a}
   to='products'> Витрина 
