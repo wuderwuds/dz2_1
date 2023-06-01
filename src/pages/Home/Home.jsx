@@ -3,6 +3,7 @@ import styles from './home.module.css'
 
 export const Home =() => {
     const quantity = useSelector(state=>state.quantity)
+    const {token} = useSelector(state=>state.user)
     let as = ''
     if (quantity===1) {
         as = 'ия'
@@ -14,8 +15,8 @@ export const Home =() => {
     
     return  (
     
-    <div className={styles.wrapper} >
-     <h1>Добро пожаловать в интренет магазин продуктов для животных! <br></br>На данный момент в асортименте {quantity} позиц{as}.
+    <div className={styles.wrapper} > 
+     <h1>Добро пожаловать в интренет магазин продуктов для животных! <br></br><p className={token ? '' : styles.lioff}>На данный момент в асортименте {quantity} позиц{as}.</p>
      </h1>
     </div>
     )
