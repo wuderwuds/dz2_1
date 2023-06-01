@@ -41,7 +41,7 @@ const onSubmit = async (values) => {
 
 const res = await mutateAsync(values)
 const responce = await res.json()
-console.log(responce);
+
   if (res.ok) {
 dispatch(setUpUser({token: responce.token, ...responce.data}))
 

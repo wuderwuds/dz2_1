@@ -1,11 +1,14 @@
 import { CardList } from "../../Components/CardList";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../hooks/useAuth";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setUpQuantity } from "../../redux/slices/quantitySlice";
+
+
 
 
 export const Products = () => {
-
+const dispatch = useDispatch()
 const {token} = useAuth()
 
 const search = useSelector(state=>state.filter.search)
@@ -22,7 +25,9 @@ const res = await fetch(`https://api.react-learning.ru/products/search?query=${s
   }
 }); 
 const responce = await res.json();
+console.log(responce)
   if (res.status===200) {
+    dispatch(setUpQuantity(responce.length))
     return responce
   }
     return alert(responce.message)
@@ -37,6 +42,9 @@ if (isError) return <p>Произошла ошибка: {error}</p>
 if (isLoading) return <p>Загрузка...</p>
     
 return (
+
 <CardList pets={pets} />
+
 )
+
 }

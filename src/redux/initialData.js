@@ -1,8 +1,9 @@
 export const myInitialData = {
     user:{},
     filter:{
-        search: ""
-    }
+        search: "" 
+    },
+    quantity:{}
 }
 
 export const getInitState = () => {

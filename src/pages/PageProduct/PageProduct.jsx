@@ -8,7 +8,7 @@ export const PageProduct = () => {
 const {token} = useAuth()
 
 const {idOfProd} = useParams()
-
+console.log()
 const {data: prod, isError, error, isLoading, refetch} = useQuery({
   queryKey: ['getCurrentProd', idOfProd ],
   queryFn: async () => {
@@ -21,12 +21,16 @@ const res = await fetch(`https://api.react-learning.ru/products/${idOfProd}`, {
   }
   }); 
   const responce = await res.json();
+  
     if (res.status===200) {
   return responce
+
   }
-  return alert(responce.message)
+    return alert(responce.message)
+  
   } catch (error) {
-  return alert(error)
+  
+    return alert(error)
   }
   }})
    

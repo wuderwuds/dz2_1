@@ -7,6 +7,8 @@ border: none;
 cursor: pointer;
 
 
+
+
     width: 240px;
     height: 366px;
    
@@ -17,6 +19,7 @@ cursor: pointer;
 .pet_pictures {
     width: 240px;
     height: 220px;
+    
 }
 
 .button {

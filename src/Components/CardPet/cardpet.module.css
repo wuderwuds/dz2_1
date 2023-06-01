@@ -3,6 +3,13 @@
     justify-content: center;
 }
 .wrapper {
- width: 18rem;
+ width: 16rem;
  
+}
+.lioff {
+    display: none;
+}
+
+.discont {
+    text-decoration: line-through;
 }

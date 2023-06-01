@@ -22,18 +22,21 @@ export const Search = () => {
 
 
   const handleChange = (event) => {
-    setSearchValue(event.target.value)
+    const value = event.target.value;
+    setSearchValue(value);
 
-    if (!event.target.value) return searchParams.delete('search')
+    if (value) {
+      return setSearchParams((prev) => {
+        prev.set('search', value)
+        navigate('/products')
+        return prev
+      })
+    }
 
-
-    const params = {}
-    searchParams.forEach((value, key) => params[key] = value)
-
-    setSearchParams({ ...params, search: event.target.value })
-
-    navigate('/products')
-
+    return setSearchParams((prev) => {
+      prev.delete('search')
+      return prev
+    })
   }
 
   return  <input className={styles.search} value={searchValue} onChange={(event)=>handleChange(event)} placeholder="Поиск" /> 

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { myInitialData } from "../initialData";
 
 
-export const filterSlice = createSlice({
+const filterSlice = createSlice({
   name: 'filter',
   initialState: myInitialData.filter,
   reducers: {
